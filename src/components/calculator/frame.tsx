@@ -29,23 +29,23 @@ export function CalculatorFrame() {
   }
 
   function sum(a: string, b: string) {
-    console.log(`sum(${a}, ${b})`);
     return (parseFloat(a) + parseFloat(b)).toString();
   }
 
   function subtract(a: string, b: string) {
-    console.log(`subtract(${a}, ${b})`);
     return (parseFloat(a) - parseFloat(b)).toString();
   }
 
   function multiply(a: string, b: string) {
-    console.log(`multiply(${a}, ${b})`);
     return (parseFloat(a) * parseFloat(b)).toString();
   }
 
   function divide(a: string, b: string) {
-    console.log(`divide(${a}, ${b})`);
     return (parseFloat(a) / parseFloat(b)).toString();
+  }
+
+  function exponent(a: string, b: string) {
+    return (parseFloat(a) ** parseFloat(b)).toString();
   }
 
   function evalOperation(operator: string) {
@@ -65,6 +65,9 @@ export function CalculatorFrame() {
 
       case '/':
         return divide(buffer, value);
+
+      case '^':
+        return exponent(buffer, value);
 
       default:
         return value;
@@ -111,6 +114,7 @@ export function CalculatorFrame() {
       </ButtonRow>
       <ButtonRow>
         <CalculatorButton value="/" onClick={handleOperator} />
+        <CalculatorButton value="^" onClick={handleOperator} />
       </ButtonRow>
       <ButtonRow>
         <CalculatorButton value="1" onClick={handleAppendNumber} />
